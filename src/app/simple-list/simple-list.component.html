@@ -1,0 +1,17 @@
+<div
+  *ngFor="let item of listItems"
+  class="list__item list__item__{{ item.color }}"
+  id="item__{{ item.id }}"
+  [ngClass]="{
+    'list__item--selected': item.id == currentSelection?.id
+  }"
+>
+  <h2>{{ item.name }}</h2>
+  <button
+    class="list__item__select"
+    (click)="onSelectItem(item)"
+    [disabled]="item.id == currentSelection?.id"
+  >
+    Select this item
+  </button>
+</div>
